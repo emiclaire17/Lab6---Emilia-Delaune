@@ -14,7 +14,26 @@ def encode(password):
             char = 2
             new_password = new_password + str(char)
     return new_password
-def decode(password):
+
+
+def decode_password(password):
+    decoded_password = ""
+    for num in password:
+        if int(num) == 0:
+            num = 7
+            decoded_password += str(num)
+        elif int(num) == 1:
+            num = 8
+            decoded_password += str(num)
+        elif int(num) == 2:
+            num = 9
+            decoded_password += str(num)
+        elif int(num) > 2:
+            decoded_password += str(num)
+    return decoded_password
+
+
+
 def main():
     active = True
     while active == True:
