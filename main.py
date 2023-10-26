@@ -1,13 +1,10 @@
-# Emilia Delaune
 def encode(password):
-    # this function adds three to each number in the original password
     new_password = ""
     for char in password:
         if int(char) < 7:
             char = int(char) + 3
             new_password = new_password + str(char)
         elif int(char) == 7:
-            # when a number hits a digit greater than 7, the count starts back at 0 to ensure no double digits
             char = 0
             new_password = new_password + str(char)
         elif int(char) == 8:
@@ -17,11 +14,28 @@ def encode(password):
             char = 2
             new_password = new_password + str(char)
     return new_password
-def decode(password):
-    # this function decodes the previous encoded password by subtracting 3 from each digit
+
+
+def decode_password(password):
+    decoded_password = ""
+    for num in password:
+        if int(num) == 0:
+            num = 7
+            decoded_password += str(num)
+        elif int(num) == 1:
+            num = 8
+            decoded_password += str(num)
+        elif int(num) == 2:
+            num = 9
+            decoded_password += str(num)
+        elif int(num) > 2:
+            decoded_password += str(num)
+    return decoded_password
+
+
+
 def main():
     active = True
-    # allows the menu to print over and over until the user quits
     while active == True:
         print('Menu')
         print('-------------')
